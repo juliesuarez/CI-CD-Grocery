@@ -22,3 +22,15 @@ def add_item(request):
 def shopping_list (request):
     items = ShoppingList.objects.all()
     return render(request,'shopping_list.html',{'items':items})
+
+
+def edit_item(request,item_id):
+    item = ShoppingList.objects.get(id=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('/add')
+    else:
+        form = ItemForm(instance=item)
+    return render(request, 'edit.html', {'form': form})
