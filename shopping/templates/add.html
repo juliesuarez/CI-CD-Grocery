@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Item</title>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .button {
+            background-color: #007bff; 
+            color: #fff; 
+            padding: 10px 20px; 
+            border: none; 
+            cursor: pointer; 
+            margin: 5px; 
+            border-radius: 5px; 
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Add Item</h1>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Add New Item</button>
+            <div class="navbar">
+                <button class="button"><a href="{% url 'index' %}">Back to Shopping List</a></button>
+                
+            </div>
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="bottom">
+        <footer style="background: black;">
+          <div class="">
+            <span class="sub-heading"> Grocery group</span>
+            <p style="text-align: center; color: white; font-size: 20px;">
+              @copy right 2023 Grocery group.
+              All rights reserved.
+            </p>
+          </div>
+        </footer>
+    </div>
+
+</body>
+</html>
