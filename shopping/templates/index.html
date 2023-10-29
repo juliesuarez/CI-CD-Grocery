@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/julie.css' %}" />
+  <title>Shopping list</title>
+</head>
+<body>
+
+  <!-- <nav>
+    <ul class="navbar">
+      <li><a href="#edit">Grocery</a></li>
+      <li><a href="/add">Add</a></li>
+      <li><a href="#edit">Edit</a></li>
+      <li><a href="#view">View</a></li>
+      <li><a href="#remove">Remove</a></li>
+    </ul>
+  </nav> -->
+
+  <section class="section-meals">
+
+    <div class="container center-text">
+      <span class="sub-heading"> Grocery Shopping list</span>
+      <h2 class="heading-secondary"> AI chooses from 5,000+ items for you</h2>
+     </div>
+
+     <div class=" container grid grid--3-cols margin-bottom-md">
+
+      <div class="meal">
+
+        <img src="{% static 'images/cart2.jpg' %}"
+         class="meal-img"
+         alt="japanese Gyozas"/>
+
+         <div class="meal-content">
+        <div class="meal-Tags">
+
+          <!-- <span class="Tag Tag--vegeterian">Vegetarian</span> -->
+        </div>
+
+        <p class="meal-title">Sweet Potatoes</p>
+
+       <ul class="meal-attributes">
+        <li class="meal-attribute"><ion-icon class="meal-icon" name="flame-outline"></ion-icon><strong>650</strong><span>Calories</span> </li>
+        <li class="meal-attribute"><ion-icon class="meal-icon" name="restaurant-outline"></ion-icon><span>NutriScore &reg;</span> <strong>74</strong>
+         </li>
+        <li class="meal-attribute"> <ion-icon class="meal-icon" name="star-outline"></ion-icon><strong>4.9</strong><span>rating(537)</span>
+        </li>
+        </ul>
+      </div> 
+    </div>
+
+    <div class="meal">
+
+      <img src="{% static 'images/cart1.jpg' %}"
+       class="meal-img"
+       alt="japanese Gyozas"/>
+
+       <div class="meal-content">
+      <div class="meal-Tags">
+        <!-- <span class="Tag Tag--vegan">Vegan</span> -->
+        <!-- <span class="Tag Tag--paleo">Paleo </span> -->
+       
+      </div>
+
+      <p class="meal-title">Tomatoes</p>
+
+     <ul class="meal-attributes">
+      <li class="meal-attribute"><ion-icon class="meal-icon" name="flame-outline"></ion-icon><strong>400</strong><span>Calories</span> </li>
+      <li class="meal-attribute"><ion-icon class="meal-icon" name="restaurant-outline"></ion-icon><span>NutriScore &reg;</span> <strong>92</strong>
+       </li>
+      <li class="meal-attribute"> <ion-icon class="meal-icon" name="star-outline"></ion-icon><strong>4.8</strong><span>rating(441)</span>
+      </li>
+      </ul>
+    </div> 
+  </div>
+
+  
+
+  <div class="diets card">
+    <h3 class="heading-tertiary"><a href="/add">Add</a>
+    <a href="{% url 'shopping_list' %}">Remove</a>
+    <a href="{% url 'shopping_list' %}">Edit</a>
+    </h3>
+    <ul class="list">
+        {% for item in items %}
+        <li>item: {{ item.name }}</li>
+        <li>quantity: {{ item.quantity }}</li>
+        <li>cost: {{ item.cost }}</li>
+        <li>date: {{ item.date }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+     <div class="container all-recipes">
+
+      <!-- <a href="#" class="link">more &rarr;</a> -->
+      
+
+     </div>
+
+  </section>
+
+  <div class="bottom">
+    <footer style="background: black;">
+      <div class="container center-text">
+        <span class="sub-heading"> Grocery group</span>
+        <p style="text-align: center; color: white; font-size: 20px;">
+          @copy right 2023 Grocery group.
+          All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
