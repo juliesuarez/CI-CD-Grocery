@@ -1,3 +1,4 @@
+import pytest
 from django.shortcuts import render,redirect
 from .forms import ItemForm
 from .models import ShoppingList
@@ -34,3 +35,8 @@ def edit_item(request,item_id):
     else:
         form = ItemForm(instance=item)
     return render(request, 'edit.html', {'form': form})
+
+def delete(request,id):
+    item = ShoppingList.objects.get(id=id)
+    item.delete()
+    return redirect('/add')
