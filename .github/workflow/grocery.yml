@@ -1,7 +1,6 @@
 name: grocery
 
-on:
-  push:
+`on: push`
     branches:
       - development
 
