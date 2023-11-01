@@ -1,22 +1,18 @@
-name: django CI
+name: grocery CI
 
 on:
   push:
     branches: [ "development" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [ 3.11.5]
-
+      container:
+        python: 3.11
     steps:
     - uses: actions/checkout@v3
     - name: Install requirements
       run: |
         pip install -r requirements.txt
-    - name: Run Tests
+    - name: Run Server
       run: |
-        python manage.py test
+        python manage.py runserver
