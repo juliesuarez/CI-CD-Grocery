@@ -1,0 +1,23 @@
+name: grocery
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: python:3.10-slim
+
+    steps:
+      - name: clone
+        uses: actions/checkout@v2
+
+      - name: install the requirements
+        run: pip install -r requirements.txt
+
+      - name: run server
+        run: python manage.py runserver
